@@ -211,9 +211,10 @@ top_tf_idf %>%
   mutate(word = reorder_within(word, tf_idf, book)) %>%
   ggplot(aes(tf_idf, word, fill = book)) +
   geom_col(show.legend = FALSE) +
-  facet_wrap(~ book, scales = "free") +
+  facet_wrap(~ book, scales = "free", nrow="3") +
   scale_y_reordered() +
-  labs(title = "Top 10 TF-IDF Words per Book", x = "TF-IDF", y = "Word")
+  labs(title = "Top 10 TF-IDF Words per Book", x = "TF-IDF", y = "Word")+
+  theme_bw()
 
 
 ###############--------------TOPIC MODELLING----------
